@@ -1,0 +1,46 @@
+.counter {
+  width: 30%;
+  margin: 20px auto;
+  color: #06c1fa;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.counter-block {
+  border: 1px solid #06c1fa;
+  margin: 10px 0;
+  padding: 4px;
+}
+.counter .progress-bar {
+  height: 10px;
+}
+.counter .progress-bar .progress {
+  background: #06c1fa;
+  height: 100%;
+  width: 70%;
+  display: block;
+}
+.counter .progress-seconds {
+  font-size: 14px;
+}
+.counter .controls {
+  display: block;
+}
+.counter .controls button,
+.counter .controls input {
+  border: 1px solid #06c1fa;
+  height: 18px;
+  padding: 4px 8px;
+  margin: 0 10px 0 0;
+  display: inline-block;
+  font-size: 14px;
+  color: #06c1fa;
+  box-sizing: content-box;
+}
+.counter .controls button {
+}
+.counter .controls button:active,
+.counter .controls button.active {
+  background: #06c1fa;
+  color: #fff;
+}
+.counter .controls input {
+}
