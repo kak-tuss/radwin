@@ -1,14 +1,15 @@
 <div class="counter">
     <div class="progress-bar counter-block">
-        <span class="progress"></span>
+        <span class="progress" #progressBar></span>
     </div>
     <div class="progress-seconds counter-block">
-        Seconds left <span>{{seconds}}</span>
+        Seconds left <span>{{roundProgress()}}</span>
     </div>
     <div class="controls counter-block">
         <button name="start" (click)="start()">Start</button>
-        <input name="seconds" type="text" size="3" [(value)]="seconds" />
+        <label>Seconds to count:
+            <input name="seconds" type="number" size="3" [(ngModel)]="seconds" (change)="progress = seconds" />
+        </label>
         <button name="stop" (click)="stop()">Stop</button>
     </div>
-    {{seconds}}
 </div>

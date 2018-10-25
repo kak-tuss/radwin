@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
   selector: "counter",
@@ -7,24 +7,41 @@ import { Component } from "@angular/core";
 })
 export class CounterComponent {
   seconds: number = 10;
-  progress: number = null;
-  timer: null;
+  progress: number = 1000;
+  timer = null;
   constructor() {}
   ngOnInit() {}
 
+  roundProgress() {
+    return Math.round(this.progress / 100);
+  }
   start() {
     console.log("start");
-    this.seconds--;
-    //    this.progress = this.seconds;
+    let self = this;
+    this.progress = this.seconds * 100;
+    this.timer = setInterval(function() {
+      self.progress--;
+      let percentage = Math.round(self.progress / self.seconds);
+      self.progressBar.nativeElement.style.width = percentage + "%";
+      if (self.progress <= 0) {
+        self.finished();
+      }
+    }, 10);
   }
   stop() {
     console.log("stop");
-    this.seconds++;
-    //    this.progress = this.seconds;
+    this.finished();
   }
 
+  finished() {
+    clearInterval(this.timer);
+    console.log("Timer Finished");
+  }
+
+  @ViewChild("progressBar")
+  progressBar: ElementRef;
+
   // updateProgress() {
-  //   let percentage = Math.round(this.seconds / this.progress);
   //   console.log(percentage);
   // }
 }

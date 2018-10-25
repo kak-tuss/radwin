@@ -15,7 +15,7 @@
 .counter .progress-bar .progress {
   background: #06c1fa;
   height: 100%;
-  width: 70%;
+  width: 100%;
   display: block;
 }
 .counter .progress-seconds {
@@ -43,4 +43,5 @@
   color: #fff;
 }
 .counter .controls input {
+  width: 90px;
 }
